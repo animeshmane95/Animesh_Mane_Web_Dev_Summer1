@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link href="user-admin.style.client.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="user-admin.controller.client.js"></script> 
+</head>
+<body>
+<div class = "container">
+<h1  id=" displayName" align = "center" style="font-family:verdana;">User Admin</h1>
+<p align = "center">Welcome Admin.<br><i>Click any of the 5 buttons to implement the the user-admin functionalities</i><br>
+<br>
+<br>
+  <button id="create" class = "btn">Create New Users</button>
+  <button id ="retrieve all users" class = "btn">Retrieve All Users</button>
+  <button id ="retrive a user for editing" class = "btn">Retrieve a user for editing </button>
+  <button id ="edit exisiting users"  class = "btn">Edit existing users </button>
+  <button id ="delete exisiting users" class = "btn">Delete existing users</button>
+ </p>
+<div id = "div1"> 
+<table class="table" id = "Create New Users">
+<thead>
+
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Email</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Phone</th>
+<th>Role</th>
+<th>DOB</th>
+<th>&nbsp;</th>
+</tr>
+
+<tr>
+<th><input id="username Fld"  class = "form-control"  placeholder="Username" /></th>
+<th><input id="password Fld"  class = "form-control"  placeholder="Password" /></th>
+<th><input id="email Fld" class = "form-control" placeholder="Email" /></th>
+<th><input id="firstName Fld" class = "form-control" placeholder="First Name" /></th>
+<th><input id="lastName Fld " class = "form-control" placeholder="Last Name" /></th>
+<th><input id="Phone Fld " class = "form-control" placeholder="Phone" /></th>
+<th><select id="role Fld " class = "form-control">
+<option value="FACULTY">Faculty</option>
+<option value="STUDENT">Student</option>
+<th><input id="DOB Fld " class = "form-control" placeholder="DOB" /></th>
+<th><button class = "btn btn-success">Create</button></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>John</td>
+<td>*****</td>
+<td>jNash@gmail.com</td>
+<td>John</td>
+<td>Nash</td>
+<td>9761234555</td>
+<td>Faculty</td>
+<td>05/22/1991</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id ="div2">
+<table class="table" id = "Retieve All Users">
+<thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Email</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Phone</th>
+<th>Role</th>
+<th>DOB</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>*****</td>
+<td>jNash@gmail.com</td>
+<td>John</td>
+<td>Nash</td>
+<td>9761234555</td>
+<td>Faculty</td>
+<td>05/22/1991</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id ="div3">
+<table class="table" id = "Delete/Edit Users">
+<thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Email</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Phone</th>
+<th>Role</th>
+<th>DOB</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th><input id="username Fld"  class = "form-control"  placeholder="Username" /></th>
+<th><input id="password Fld"  class = "form-control"  placeholder="Password" /></th>
+<th><input id="email Fld" class = "form-control" placeholder="Email" /></th>
+<th><input id="firstName Fld" class = "form-control" placeholder="First Name" /></th>
+<th><input id="lastName Fld " class = "form-control" placeholder="Last Name" /></th>
+<th><input id="Phone Fld " class = "form-control" placeholder="Phone" /></th>
+<th><select id="role Fld " class = "form-control">
+<option value="FACULTY">Faculty</option>
+<option value="STUDENT">Student</option>
+<th><input id="DOB Fld " class = "form-control" placeholder="DOB" /></th>
+<th><button class = "btn btn-success">Update</button></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>John</td>
+<td>*****</td>
+<td>jNash@gmail.com</td>
+<td>John</td>
+<td>Nash</td>
+<td>9761234555</td>
+<td>Faculty</td>
+<td>05/22/1991</td>
+<td><button class = "btn btn-danger">Delete</button> </td>
+<td><button class = "btn btn-warning">Edit</button> </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="div5" style="width: 400px; margin: 5px 5px 0px 390px;">
+<input id = "search keyword" style="width: 300px; margin-right: 5px;"   placeholder = "search by username or first name"/>
+<button id="search" class = "btn btn-primary">Search</button><br> <br>
+</div>
+
+<div id = "div4" >
+<table class="table" id = "Edit Searched User">
+<thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Email</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Phone</th>
+<th>Role</th>
+<th>DOB</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th><input id="username Fld"  class = "form-control"  placeholder="Username" /></th>
+<th><input id="password Fld"  class = "form-control"  placeholder="Password" /></th>
+<th><input id="email Fld" class = "form-control" placeholder="Email" /></th>
+<th><input id="firstName Fld" class = "form-control" placeholder="First Name" /></th>
+<th><input id="lastName Fld " class = "form-control" placeholder="Last Name" /></th>
+<th><input id="Phone Fld " class = "form-control" placeholder="Phone" /></th>
+<th><select id="role Fld " class = "form-control">
+<option value="FACULTY">Faculty</option>
+<option value="STUDENT">Student</option>
+<th><input id="DOB Fld " class = "form-control" placeholder="DOB" /></th>
+<th><button class = "btn btn-warning">Edit</button></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>John</td>
+<td>*****</td>
+<td>jNash@gmail.com</td>
+<td>John</td>
+<td>Nash</td>
+<td>9761234555</td>
+<td>Faculty</td>
+<td>05/22/1991</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>
