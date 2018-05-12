@@ -1,4 +1,4 @@
-package webdev.models;
+package com.example.myApp.webdev.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
