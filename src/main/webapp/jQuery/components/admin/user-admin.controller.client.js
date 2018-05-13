@@ -15,6 +15,7 @@
 
 	function main(){
 		findAllUsers();
+		$("#button3").hide();
 		 tbody = $('tbody');
 		 template = $('.template');
 		$("#button2").click(createUser);
@@ -101,6 +102,8 @@
 		  $("#PhoneFld").val(user.phone);
 		  $("#roleFld").val(user.role);
 		  $("#DOBFld").val(user.dob);
+		  $("#button2").hide();
+		  $("#button3").show();
 		  alert("After changing values please click on update button")
 		  $(document).on('click','#button3',function(){updateUser(user);});
 	  }
@@ -123,6 +126,8 @@
 			  $("#PhoneFld").val('');
 			  $("#roleFld").val('');
 			  $("#DOBFld").val('');
+			  $("#button3").hide();
+			  $("#button2").show();
 	  }
 	  
 	    function deleteUser(event) {
