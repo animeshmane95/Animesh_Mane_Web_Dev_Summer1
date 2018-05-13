@@ -39,6 +39,14 @@
 	
 	clientService.createUser(newUser, findAllUsers);
 	 alert('Successfully Created!!!!!')
+	  $("#usernameFld").val('');
+	 $("#passwordFld").val('');
+	  $("#emailFld").val('');
+	  $("#firstNameFld").val('');
+	  $("#lastNameFld").val('');
+	  $("#PhoneFld").val('');
+	  $("#roleFld").val('');
+	  $("#DOBFld").val('');
 	}
 	
 	 function findAllUsers() {
@@ -107,6 +115,14 @@
 		  user.dob = $("#DOBFld").val();
 		  clientService.updateUser(user,user.id,findAllUsers);
 		  alert("Successfully Updated!!!!!")
+		  $("#usernameFld").val('');
+			 $("#passwordFld").val('');
+			  $("#emailFld").val('');
+			  $("#firstNameFld").val('');
+			  $("#lastNameFld").val('');
+			  $("#PhoneFld").val('');
+			  $("#roleFld").val('');
+			  $("#DOBFld").val('');
 	  }
 	  
 	    function deleteUser(event) {
