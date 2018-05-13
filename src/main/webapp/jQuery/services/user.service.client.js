@@ -4,7 +4,7 @@ this.findAllUsers = findAllUsers;
 this.findUserById = findUserById;
 this.updateUser = updateUser;
 this.deleteUser = deleteUser;
-this.url = 'http://localhost:8080/api/user';
+this.url = '/api/user';
 var self = this;
 
 function createUser(user){
