@@ -6,15 +6,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link href="user-admin.style.client.css" rel="stylesheet" /> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = "../../services/user.service.client.js"></script>
 <script src="user-admin.controller.client.js"></script>
 <script src = "../../models/user.model.client.js"></script> 
-<script src = "../../services/user.service.client.js"></script>
 </head>
 <body>
 <div class = "container">
 <h1 align = "center" id=" displayName"><i>User Admin</i></h1>
 <div id="div1" style="width: 400px; margin: 5px 5px 0px 390px;">
-<input id = "search keyword" style="width: 300px; margin-right: 5px;"   placeholder = "search by username"/>
+<input id = "searchkeyword" style="width: 300px; margin-right: 5px;"   placeholder = "search by username"/>
 <button id="button1" class = "btn btn-primary">Search</button><br> <br>
 </div>
 
@@ -34,7 +34,7 @@
 <th>&nbsp;</th>
 </tr>
 
-<tr>
+<tr class = "template2">
 <th><input id="usernameFld"  class = "form-control"  placeholder="Username" /></th>
 <th><input id="passwordFld"  class = "form-control"  placeholder="Password" /></th>
 <th><input id="emailFld" class = "form-control" placeholder="Email" /></th>
@@ -53,17 +53,17 @@
 </thead>
 
 <tbody>
-<tr>
-<td>John</td>
-<td>*****</td>
-<td>jNash@gmail.com</td>
-<td>John</td>
-<td>Nash</td>
-<td>9761234555</td>
-<td>Faculty</td>
-<td>05/22/1991</td>
-<td><button button id="button4" class = "btn btn-danger btn-xm">Delete</button> </td>
-<td><button button id="button5" class = "btn btn-warning btn-xm">Edit</button> </td>
+<tr class = "template">
+<td class ="username" >John</td>
+<td class ="password">*****</td>
+<td class ="email">jNash@gmail.com</td>
+<td class ="fname">John</td>
+<td class ="lname">Nash</td>
+<td class ="phone">9761234555</td>
+<td class ="role">Faculty</td>
+<td class ="dob">05/22/1991</td>
+<td><button  id="button4" class = "delete btn btn-danger btn-xm">Delete</button> </td>
+<td><button  id="button5" class = "edit btn btn-warning btn-xm">Edit</button> </td>
 </tr>
 
 <tr>
@@ -75,8 +75,8 @@
 <td>9811134566</td>
 <td>Student</td>
 <td>07/18/1995</td>
-<td><button button id="button4" class = "btn btn-danger">Delete</button> </td>
-<td><button button id="button5" class = "btn btn-warning">Edit</button> </td>
+<td><button id="button4" class = "btn btn-danger">Delete</button> </td>
+<td><button id="button5" class = "btn btn-warning">Edit</button> </td>
 </tr>
 
 </tbody>
