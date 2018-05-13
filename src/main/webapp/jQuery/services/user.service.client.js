@@ -7,9 +7,9 @@ this.deleteUser = deleteUser;
 this.url = '/api/user';
 var self = this;
 
-function createUser(user){
+function createUser(user,callback){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
-	return fetch('/api/user', postObject );
+	fetch('/api/user', postObject ).then(callback);
 }
 
 
@@ -25,13 +25,13 @@ function findUserById(userId){
 
 }
 
-function updateUser(user,userid){
+function updateUser(user,userid,callback){
 	var postObject = {method: 'put',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
-	return fetch('/api/user/' + userid, postObject );}
+	return fetch('/api/user/' + userid, postObject ).then(callback);}
 
-function deleteUser(userId) {
+function deleteUser(userId,callback) {
     return fetch(self.url + '/' + userId, {
         method: 'delete'
-    })}
+    }).then(callback)}
 
 }

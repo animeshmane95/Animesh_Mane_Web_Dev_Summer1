@@ -15,6 +15,8 @@
 
 	function main(){
 		findAllUsers();
+		 tbody = $('tbody');
+		 template = $('.template');
 		$("#button2").click(createUser);
 		$(document).on('click','#button5',function(){findUserById(this);});
 		 }
@@ -35,9 +37,9 @@
 	var newUser = new User(userName,password,email,firstName,lastName,phone,role,dob);
 
 	
-	clientService.createUser(newUser);
-	alert("Please Reload Page to see updated table")
-	findAllUsers();}
+	clientService.createUser(newUser, findAllUsers);
+	 alert('Successfully Created!!!!!')
+	}
 	
 	 function findAllUsers() {
 		
@@ -45,8 +47,7 @@
 	    }
 	 
 	 function renderUsers(users) {
-		 tbody = $('tbody');
-		 template = $('.template');
+		
 		 tbody.empty();
 	        for(var i=0; i<users.length; i++) {
 	            var user = users[i];
@@ -70,7 +71,7 @@
 	        var deleteBtn = $(event.currentTarget);
 	        var userId = deleteBtn.parent().parent().attr('id');
 
-	        clientService.deleteUser(userId).then(findAllUsers);}
+	        clientService.deleteUser(userId);}
 	  function editUser(event) {
 	        console.log('editUser');
 	        console.log(event);}
@@ -104,19 +105,21 @@
 		  user.phone = $("#PhoneFld").val();
 		  user.role = $("#roleFld").val();
 		  user.dob = $("#DOBFld").val();
-		  clientService.updateUser(user,user.id);
-		  alert("Please Reload Page to see updated table")
+		  clientService.updateUser(user,user.id,findAllUsers);
+		  alert("Successfully Updated!!!!!")
 	  }
 	  
 	    function deleteUser(event) {
+	    	
 	        var deleteBtn = $(event.currentTarget);
 	        var userId = deleteBtn
 	            .parent()
 	            .parent()
 	            .attr('id');
 
-	        clientService.deleteUser(userId).then(findAllUsers);
-	        alert("Please Reload Page to see updated table")
+	        clientService.deleteUser(userId,findAllUsers);
+	        alert('Successfully Deleted!!!!!')
+	        
 	    }
 
 })();
