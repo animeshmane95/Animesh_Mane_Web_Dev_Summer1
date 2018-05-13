@@ -36,6 +36,7 @@
 
 	
 	clientService.createUser(newUser);
+	alert("Please Reload Page to see updated table")
 	findAllUsers();}
 	
 	 function findAllUsers() {
@@ -104,7 +105,19 @@
 		  user.role = $("#roleFld").val();
 		  user.dob = $("#DOBFld").val();
 		  clientService.updateUser(user,user.id);
+		  alert("Please Reload Page to see updated table")
 	  }
+	  
+	    function deleteUser(event) {
+	        var deleteBtn = $(event.currentTarget);
+	        var userId = deleteBtn
+	            .parent()
+	            .parent()
+	            .attr('id');
+
+	        clientService.deleteUser(userId).then(findAllUsers);
+	        alert("Please Reload Page to see updated table")
+	    }
 
 })();
 

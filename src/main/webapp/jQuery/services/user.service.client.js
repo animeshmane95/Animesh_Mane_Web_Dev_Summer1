@@ -3,6 +3,7 @@ this.createUser = createUser;
 this.findAllUsers = findAllUsers;
 this.findUserById = findUserById;
 this.updateUser = updateUser;
+this.deleteUser = deleteUser;
 this.url = 'http://localhost:8080/api/user';
 var self = this;
 
@@ -26,8 +27,11 @@ function findUserById(userId){
 
 function updateUser(user,userid){
 	var postObject = {method: 'put',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
-	return fetch('/api/user/' + userid, postObject );
-	
-}
+	return fetch('/api/user/' + userid, postObject );}
+
+function deleteUser(userId) {
+    return fetch(self.url + '/' + userId, {
+        method: 'delete'
+    })}
 
 }

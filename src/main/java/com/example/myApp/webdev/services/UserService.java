@@ -33,4 +33,10 @@ public class UserService {
 		return user;
 		}
 	
+	@DeleteMapping("/api/user/{userId}")
+	public void deleteUser(@PathVariable("userId") int id) {
+		userRepository.deleteById(id);
+	}
+	
+	
 }
