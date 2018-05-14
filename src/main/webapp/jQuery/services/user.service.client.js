@@ -4,8 +4,18 @@ this.findAllUsers = findAllUsers;
 this.findUserById = findUserById;
 this.updateUser = updateUser;
 this.deleteUser = deleteUser;
+this.findUserbyUserName = findUserbyUserName;
+this.findUserbyUser = findUserbyUser;
 this.url = '/api/user';
+this.url1 = '/api/register'
 var self = this;
+
+function findUserbyUserName(username){
+	return fetch(self.url1 + "/" + username).then(function (response) {return response.json();});
+}
+function findUserbyUser(username){
+	return fetch(self.url1 + "/" + username).then(function (response) {return response.json();});
+}
 
 function createUser(user,callback){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }

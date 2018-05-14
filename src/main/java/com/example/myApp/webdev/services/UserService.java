@@ -38,5 +38,22 @@ public class UserService {
 		userRepository.deleteById(id);
 	}
 	
+	@GetMapping("/api/register/{username}")
+	public Map<String, String> findUserbyUserName(@PathVariable("username") String username) {
+		Map<String, String> result = new HashMap<String, String>();
+		String exists;
+		
+		 List<User> usersList = userRepository.findUserbyUserName(username);
+		 if (usersList.size() == 0) {
+			 exists = "false";
+		 }
+		 else {
+			 exists = "true";
+		 }
+		 result.put("exists",""+exists);
+		 return result;
+		 
+	}
+	
 	
 }
