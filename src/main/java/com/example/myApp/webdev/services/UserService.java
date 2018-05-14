@@ -55,5 +55,10 @@ public class UserService {
 		 
 	}
 	
+	@PostMapping("/api/register")
+	public User register(@RequestBody User user) {
+		return userRepository.save(user);
+	}
+	
 	
 }
