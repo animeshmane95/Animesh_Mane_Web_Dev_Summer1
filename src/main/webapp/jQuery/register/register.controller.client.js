@@ -31,7 +31,7 @@ $( document ).ready(function() {
 			    	{
 			    			$('#submitUser').attr('disabled', true);
 			    			alert("Registration unsuccessful!! Username already exists.Please try other user name!");
-			    			alert("Submit button disabled due to unsuccessful registration. Please reload page to register again!");
+			    			alert("Submit button disabled due to unsuccessful registration. Please reload page to register again!");		    			
 			    	}
 			    
 		 });
@@ -49,17 +49,26 @@ $( document ).ready(function() {
 		 if (confirmPassword != password){
 			 if (confirmPassword == ""){
 				 alert("Password Validation failed.Confirm Password field is empty!")
-				 alert("Registration unsuccessful!! Confirm Password field empty.Please reload page to register again!")
+				 alert("Registration unsuccessful!! Confirm Password field is empty.Please Try Again!")
+				 $("#username").val('');
+				 $("#password").val('');
+				 $("#confirm-password").val('');
 			 }
 			 
 			 else if (password == ""){
 				 alert("Password Validation failed.Password field is empty!")
-				 alert("Registration unsuccessful!! Password field empty. Please reload page to register again!")
+				 alert("Registration unsuccessful!! Password field empty. Please Try Again!")
+				 $("#username").val('');
+				 $("#password").val('');
+				 $("#confirm-password").val('');
 			 }
 			 
 			 else {
 				 alert("Password Validation failed. Passwords do not match!")
-				 alert("Registration unsuccessful!! Passwords do not match .Please reload page to register again!");
+				 alert("Registration unsuccessful!! Passwords do not match .Please Try Again!");
+				 $("#username").val('');
+				 $("#password").val('');
+				 $("#confirm-password").val('');
 			 }
 
 		 }
