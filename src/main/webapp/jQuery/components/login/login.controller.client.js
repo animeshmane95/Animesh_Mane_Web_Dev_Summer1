@@ -3,8 +3,6 @@ $( document ).ready(function() {
  $(main);
  
  function main(){
-	 var username = $("#login-username").val()
-	 var password = $("#login-password").val();
 	 $(document).on('click','#login-button',function(){
 		 var username = $("#login-username").val()
 		 var password = $("#login-password").val();
@@ -31,6 +29,9 @@ $( document ).ready(function() {
 			 alert("Welcome"+  " " + response.username)}
 		 
 	 });
+	 
+	  $("#login-username").val("")
+	  $("#login-password").val("");
 	 
 	 }
 

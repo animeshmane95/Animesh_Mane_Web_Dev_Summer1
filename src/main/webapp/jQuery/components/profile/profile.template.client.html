@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="profile.style.client.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "../../services/user.service.client.js"></script>
+    <script src="profile.controller.client.js"></script>
+    <script src = "../../models/user.model.client.js"></script>
+    <style>.container {border-radius: 5px;background-color: #f2f2f2 ;
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        width: 520px;
+        height: 860px;
+        margin: auto;}</style>
+</head>
+<body style="background-color:#557A95;">
+<h1 align = "center" style="color: white" ><i>Profile Page</i></h1>
+<div class="container">
+    <br>
+    
+    <br>
+    <label for="username">User Name</label>
+    <input id = "username" type="text"  class = "form-control"  placeholder="Username"><br>
+    <label for = "password">Password</label>
+    <input id = "password" type="text" class = "form-control"  placeholder="Password"><br>
+    <label for="email">Email Id</label><br>
+    <input id = "email" type="text"  class = "form-control"  placeholder="Email"><br>
+    <label for = "firstName">First Name</label><br>
+    <input id = "firstName" type="text" class = "form-control"  placeholder="First Name"><br>
+    <label for="lastName">Last Name</label><br>
+    <input id = "lastName" type="text"  class = "form-control"  placeholder="Last Name"><br>
+    <label for = "phone">Phone</label><br>
+    <input id = "phone" type="text" class = "form-control"  placeholder="Phone"><br>
+    <label for = "Role">Role</label><br>
+    <select id = "Role" type="text" class = "form-control"  placeholder="Role">
+        <option value="FACULTY">Faculty</option>
+        <option value="STUDENT">Student</option>
+        <option value="STUDENT">Admin</option></select><br>
+    <label for = "dob">Date of Birth</label><br>
+    <input id = "dob" type="date" class = "form-control"  placeholder="MM/DD/YYYY"><br>
+    <button id = "profile-update" class = "w3-button w3-block w3-yellow w3-center-align w3-round">Update</button><br>
+    <button id = "logout" class = "w3-button w3-block w3-red w3-center-align w3-round">Submit</button>
+    <br>
+</div>
+</body>
+</html>
