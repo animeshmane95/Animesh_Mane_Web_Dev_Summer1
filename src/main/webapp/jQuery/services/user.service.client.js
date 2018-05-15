@@ -5,11 +5,17 @@ this.findUserById = findUserById;
 this.updateUser = updateUser;
 this.deleteUser = deleteUser;
 this.findUserbyUserName = findUserbyUserName;
-//this.findUserbyUser = findUserbyUser;
+this.login = login
 this.register = register
 this.url = '/api/user';
 this.url1 = '/api/register'
+this.url2 = '/api/login'
 var self = this;
+
+function login(user){
+	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
+	return fetch(self.url2, postObject).then(function (response) {return response.json();});
+}
 
 function register(user){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
@@ -19,9 +25,7 @@ function register(user){
 function findUserbyUserName(username){
 	return fetch(self.url1 + "/" + username).then(function (response) {return response.json();});
 }
-//function findUserbyUser(username){
-//	return fetch(self.url1 + "/" + username).then(function (response) {return response.json();});
-//}
+
 
 function createUser(user,callback){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
@@ -49,5 +53,6 @@ function deleteUser(userId,callback) {
     return fetch(self.url + '/' + userId, {
         method: 'delete'
     }).then(callback)}
+
 
 }

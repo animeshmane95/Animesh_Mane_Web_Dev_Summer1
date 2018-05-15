@@ -10,6 +10,26 @@ import java.util.*;
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
+	// login function returns 
+	@PostMapping("/api/login")
+	public User login(@RequestBody User user) {
+		List<User> usersList = userRepository.findUserByUsernameAndPassword(user.getUsername(),user.getPassword());
+		if(usersList.size() == 0) {
+			user.setUsername(null);
+			user.setPassword(null);
+			user.setFirstName(null);
+			user.setLastName(null);
+			user.setEmail(null);
+			user.setPhone(null);
+			user.setRole(null);
+			user.setDob(null);
+		}
+		
+		else {
+			user = usersList.get(0);
+		}
+		return user;
+	}
 	
 	@PostMapping("/api/user")
 	public User createUser(@RequestBody User user) {

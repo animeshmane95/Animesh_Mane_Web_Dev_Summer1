@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="login.style.client.css" rel="stylesheet" />
-<style>.inputFields {border-radius: 5px;background-color: #f2f2f2 ;
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src = "../../services/user.service.client.js"></script>
+<script src="login.controller.client.js"></script>
+<script src = "../../models/user.model.client.js"></script> 
+<style>.container {border-radius: 5px;background-color: #f2f2f2 ;
     padding-top: 30px;
     padding-right: 30px;
     padding-bottom: 50px;
@@ -24,18 +28,17 @@
 <br>
 
 <div class = "container">
-<div class = "inputFields">
+
 
   <label for="username">User Name</label><br>
   <input id = "login-username" type="text" name="USERNAME" class = "form-control"  placeholder="Username"><br>
   <label for="password">Password</label><br>
   <input id = "login-password" type="password" name="PASSWORD" class = "form-control"  placeholder="Password"><br>
-  <button id = "login-button" class = "w3-button w3-block w3-green w3-center-align">Login</button><br>
+  <button id = "login-button" class = "btn btn-success">Login</button><br>
   <p style="font-size:70%;"><i>Not a Member yet? Click on SignUp link to register </i>
   <button id = "login-page-signUp-button" class = "btn btn-link btn-sm"> SignUp</button><br>
   <button id = "forgotPassword" class = "btn btn-link btn-sm">Forgot Password?</button>
   </p> 
-</div>
 </div>
 </body>
 </html>
