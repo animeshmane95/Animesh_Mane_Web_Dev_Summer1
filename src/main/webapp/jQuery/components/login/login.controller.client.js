@@ -26,7 +26,9 @@ $( document ).ready(function() {
 		 }
 
 		 else {
-			 alert("Welcome"+  " " + response.username)}
+			 alert("Welcome"+  " " + response.username)
+			 window.location = "../profile/profile.template.client.html" 
+			 }
 		 
 	 });
 	 

@@ -5,12 +5,25 @@ this.findUserById = findUserById;
 this.updateUser = updateUser;
 this.deleteUser = deleteUser;
 this.findUserbyUserName = findUserbyUserName;
+this.updateProfile = updateProfile;
+this.getProfile = getProfile;
 this.login = login
 this.register = register
 this.url = '/api/user';
 this.url1 = '/api/register'
 this.url2 = '/api/login'
+this.url3 = '/api/profile'
 var self = this;
+
+function getProfile(){
+	return fetch(self.url3).then(function (response) {return response.json();});   
+}
+
+
+function updateProfile(user){
+	var postObject = {method: 'put',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
+	return fetch(self.url3, postObject).then(function (response) {return response.json();});   
+}
 
 function login(user){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }

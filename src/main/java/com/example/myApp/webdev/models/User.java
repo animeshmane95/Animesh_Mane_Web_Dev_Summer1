@@ -75,5 +75,10 @@ public class User {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+	
+	public String toString()
+	{
+		return this.firstName+" "+this.lastName+" "+this.id;
+	}
 }
 

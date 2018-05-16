@@ -6,29 +6,47 @@ import com.example.myApp.webdev.models.User;
 import com.example.myApp.webdev.repositories.UserRepository;
 
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
+
 @RestController
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
+	HttpSession session1;
+		
 	// login function returns 
 	@PostMapping("/api/login")
-	public User login(@RequestBody User user) {
+	public User login(@RequestBody User user,HttpSession session) {	
+		session1 = session;
 		List<User> usersList = userRepository.findUserByUsernameAndPassword(user.getUsername(),user.getPassword());
 		if(usersList.size() == 0) {
-			user.setUsername(null);
-			user.setPassword(null);
-			user.setFirstName(null);
-			user.setLastName(null);
-			user.setEmail(null);
-			user.setPhone(null);
-			user.setRole(null);
-			user.setDob(null);
+			user =  new User();
 		}
 		
 		else {
 			user = usersList.get(0);
+			session1.setAttribute("id", user);
 		}
 		return user;
+	}
+	
+	@PutMapping("/api/profile")
+	public User updateProfile(@RequestBody User user){
+		User user1 = (User) session1.getAttribute("id");
+		int id1 =user1.getId();
+		user.setId(id1);
+		userRepository.save(user);
+		return user;
+		}
+	
+	@GetMapping("/api/profile")
+	public User getProfile( HttpSession session) {
+		User user1 ;
+		user1 = (User) session1.getAttribute("id");
+		return user1;
+		
 	}
 	
 	@PostMapping("/api/user")
