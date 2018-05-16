@@ -21,14 +21,6 @@ $( document ).ready(function() {
 	 var response = userService.updateProfile(updatedUser).then(function(results){
 		    var respo = results;
 		    alert("Successfully Updated")
-		    $("#username").val(respo.username);
-		    $("#password").val(respo.password);
-		    $("#email").val(respo.email);
-		    $("#firstName").val(respo.firstName);
-		    $("#lastName").val(respo.lastName);
-		    $("#phone").val(respo.phone)
-		    $("#Role").val(respo.role);
-		    $("#dob").val(respo.dob);
 		    
 	 });
 
