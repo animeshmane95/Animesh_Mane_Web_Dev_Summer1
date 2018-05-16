@@ -7,13 +7,36 @@ this.deleteUser = deleteUser;
 this.findUserbyUserName = findUserbyUserName;
 this.updateProfile = updateProfile;
 this.getProfile = getProfile;
-this.login = login
+this.login = login;
+this.logout = logout;
 this.register = register
 this.url = '/api/user';
 this.url1 = '/api/register'
 this.url2 = '/api/login'
 this.url3 = '/api/profile'
+this.url4 = '/api/logout'
 var self = this;
+
+function logout(user){
+	
+	var response = $.ajax({
+		
+		async:false,
+		type: "POST",
+		contentType:"application/json; charset=utf-8",
+		dataType: 'json',
+		url: "/api/logout",
+		data: JSON.stringify(user),
+		
+	})
+	
+	return response.responseJSON
+	
+	
+	//var postObject = {method: 'put',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
+	//return fetch(self.url4, postObject).then(function (response) {return response;});
+	
+}
 
 function getProfile(){
 	return fetch(self.url3).then(function (response) {return response.json();});   
@@ -32,7 +55,7 @@ function login(user){
 
 function register(user){
 	var postObject = {method: 'post',body: JSON.stringify(user),headers: {'content-Type': 'application/json','dataType':'json'} }
-	fetch('/api/register', postObject).then(function (response) {return response.json();});
+	return fetch('/api/register', postObject).then(function (response) {return response.json();});
 }
 
 function findUserbyUserName(username){

@@ -8,6 +8,10 @@ $( document ).ready(function() {
 		 var password = $("#login-password").val();
 		 login(username,password);
 		 });
+	 $(document).on('click','#login-page-signUp-button',function(){
+		 window.location = "../../register/register.template.client.html"
+		 
+	 });
  }
  
  function login(username,password){

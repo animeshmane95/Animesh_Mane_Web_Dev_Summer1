@@ -15,7 +15,9 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	HttpSession session1;
-		
+	
+	
+	
 	// login function returns 
 	@PostMapping("/api/login")
 	public User login(@RequestBody User user,HttpSession session) {	
@@ -30,6 +32,17 @@ public class UserService {
 			session1.setAttribute("id", user);
 		}
 		return user;
+	}
+	
+	
+	@RequestMapping(value = "/api/logout")
+	public User logout(@RequestBody User user) {
+		
+		
+		session1.invalidate();
+
+		return new User(); 
+		
 	}
 	
 	@PutMapping("/api/profile")
@@ -94,8 +107,12 @@ public class UserService {
 	}
 	
 	@PostMapping("/api/register")
-	public User register(@RequestBody User user) {
-		return userRepository.save(user);
+	public User register(@RequestBody User user, HttpSession session) {
+		session1 = session;
+		System.out.println(user);
+		user = userRepository.save(user);
+		session1.setAttribute("id", user);
+		return user;
 	}
 	
 	

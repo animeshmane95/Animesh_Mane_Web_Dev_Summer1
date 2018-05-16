@@ -75,11 +75,15 @@ $( document ).ready(function() {
 		 
 		 
 		 else{
-			 var newUser = userService.register(user)
-			 alert("Successfully Registered!!!!")
-			 $("#username").val('');
-			 $("#password").val('');
-			 $("#confirm-password").val('');
+			 var response = userService.register(user).then(function(results){
+				    var respo = results;
+				    alert("Successfully Registered!!!!")
+				    window.location = "/jQuery/components/profile/profile.template.client.html"
+				    $("#username").val('');
+				    $("#password").val('');
+				    $("#confirm-password").val('');
+				    
+			 });
 		 }
 	 }
 	 

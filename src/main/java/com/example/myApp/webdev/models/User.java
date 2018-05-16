@@ -76,9 +76,6 @@ public class User {
 		this.dob = dob;
 	}
 	
-	public String toString()
-	{
-		return this.firstName+" "+this.lastName+" "+this.id;
-	}
+	
 }
 

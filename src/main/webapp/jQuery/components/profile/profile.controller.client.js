@@ -3,8 +3,9 @@ $( document ).ready(function() {
  $(main);
  
  function main(){	 
-	 getProfileData();	 	 
- }
+	 getProfileData();
+	 
+	 }
  
  function updateProfile(user){
 	var username =  $("#username").val();
@@ -17,15 +18,20 @@ $( document ).ready(function() {
 	var dob  = $("#dob").val();
 	
 	var updatedUser = new User(username,password,email,firstName,lastName,phone,role,dob);
-	 userService.updateProfile(updatedUser);
-	 $("#username").val("");
-	 $("#password").val("");
-	 $("#email").val("");
-	 $("#firstName").val("");
-	 $("#lastName").val("");
-	 $("#phone").val("")
-	 $("#Role").val("");
-	 $("#dob").val("");
+	 var response = userService.updateProfile(updatedUser).then(function(results){
+		    var respo = results;
+		    alert("Successfully Updated")
+		    $("#username").val(respo.username);
+		    $("#password").val(respo.password);
+		    $("#email").val(respo.email);
+		    $("#firstName").val(respo.firstName);
+		    $("#lastName").val(respo.lastName);
+		    $("#phone").val(respo.phone)
+		    $("#Role").val(respo.role);
+		    $("#dob").val(respo.dob);
+		    
+	 });
+
 	 
  }
 
@@ -44,6 +50,16 @@ function getProfileData(){
 		 $("#dob").val(Result.dob);
 		 
 		 $(document).on('click','#profile-update',function(){updateProfile(Result);});
+		  $(document).on('click','#logout',function(){
+			  
+			  var user = userService.logout(Result);
+			  if(user.id != Result.username)
+				  {
+				  	
+				    window.location.replace("../login/login.template.client.html");
+				  }
+			  
+		  });
 	});
 }
   
