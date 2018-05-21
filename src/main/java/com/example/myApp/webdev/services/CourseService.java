@@ -44,9 +44,6 @@ public class CourseService {
 	@DeleteMapping("/api/course/{courseId}")
 	public void delete(@PathVariable("courseId") int id) {
 		System.out.println("inside delete course");
-		courseRepository.deleteById(id);
-	
-	
-		
+		courseRepository.deleteById(id);	
 	}
 }
