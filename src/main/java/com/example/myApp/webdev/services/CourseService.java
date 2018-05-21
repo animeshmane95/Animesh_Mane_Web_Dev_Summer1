@@ -1,6 +1,7 @@
 package com.example.myApp.webdev.services;
 
 import java.util.Date;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,20 +25,28 @@ public class CourseService {
 	CourseRepository courseRepository;
 	HttpSession session1;
 	
+	@GetMapping("/api/course/{id}")
+	public Optional<Course> findCourseById(@PathVariable("id") int id) {
+		return courseRepository.findById(id);
+	}
+	
 	@GetMapping("/api/course")
 	public Iterable<Course> findAllCourses() {
 		return courseRepository.findAll();
 	}
 	
 	@PostMapping("/api/course")
-	public Course createUser(@RequestBody Course course) {
+	public Course createCourse(@RequestBody Course course) {
 		course.setCreated(new Date());
 		return courseRepository.save(course);
 	}
 	
 	@DeleteMapping("/api/course/{courseId}")
-	public void deleteUser(@PathVariable("courseId") int id) {
+	public void delete(@PathVariable("courseId") int id) {
 		System.out.println("inside delete course");
 		courseRepository.deleteById(id);
+	
+	
+		
 	}
 }

@@ -1,14 +1,19 @@
 package com.example.myApp.webdev.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Entity
 @Table(name = "course")
@@ -21,6 +26,8 @@ public class Course {
 	private Date created;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modified;
+	@OneToMany(mappedBy="course")
+	private List<Module> modules;
 	
 	public int getId() {
 		return id;
