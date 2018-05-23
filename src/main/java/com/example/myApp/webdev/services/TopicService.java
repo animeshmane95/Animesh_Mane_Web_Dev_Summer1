@@ -5,10 +5,12 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.myApp.webdev.models.Lesson;
@@ -30,6 +32,11 @@ public class TopicService {
 	public List<Topic> findAllTopicsForLesson(@PathVariable("lid") int id) {
 		
 		return topicRepository.findAllTopicsForLesson(id);
+	}
+	
+	@DeleteMapping("/api/delete/topic")
+	public void deleteTopic(@RequestParam("topicId") int id) {
+		topicRepository.deleteById(id);	
 	}
 	
 	@PostMapping("/api/course/{cid}/module/{mid}/lesson/{lid}/topic")
