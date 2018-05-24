@@ -29,6 +29,8 @@ public class LessonService {
 	@Autowired
 	ModuleRepository moduleRepository;
 	
+	
+	
 	@GetMapping("/api/course/{cid}/module/{mid}/lesson")
 	public List<Lesson> findAllLessonsForModule(@PathVariable("mid") int id) {
 		
