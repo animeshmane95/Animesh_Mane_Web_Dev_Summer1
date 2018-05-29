@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import com.example.myApp.webdev.models.Topic;
+import com.example.myApp.webdev.models.Widget;
 
 
 

@@ -48,4 +48,8 @@ public class WidgetService {
 		return (List<Widget>) widgetRepository.findAll();
 	}
 
+	@GetMapping("api/topic/{tid}/widget")
+	public List <Widget> findAllWidgetsofTopic(@PathVariable("tid") int id){
+		return widgetRepository.findAllWidgetsForTopic(id);
+	}
 }
