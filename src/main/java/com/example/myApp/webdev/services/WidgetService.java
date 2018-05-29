@@ -37,5 +37,15 @@ public class WidgetService {
 		return widgets;
 		
 	}
+	
+	@DeleteMapping("/api/delete/widget/{widgetId}")
+	public void deleteTopic(@PathVariable("widgetId") int widgetId) {
+		widgetRepository.deleteById(widgetId);	
+	}	
+	
+	@GetMapping("api/widget")
+	public List <Widget> findAllWidgets(){
+		return (List<Widget>) widgetRepository.findAll();
+	}
 
 }
