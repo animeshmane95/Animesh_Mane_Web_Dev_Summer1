@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import net.minidev.json.writer.CollectionMapper.ListType;
+
 
 
 @Entity
