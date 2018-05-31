@@ -1,4 +1,4 @@
-(function(){
+$(document).ready(function(){
 	var userName; 
 	var password ; 
 	var email ;
@@ -143,7 +143,7 @@
 	        
 	    }
 
-})();
+});
 
 
 
