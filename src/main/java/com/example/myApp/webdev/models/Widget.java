@@ -56,10 +56,10 @@ public class Widget {
 	public void setWidgetType(String widgetType) {
 		this.widgetType = widgetType;
 	}
-	public int getOrder() {
+	public int getWidgetorder() {
 		return widgetorder;
 	}
-	public void setOrder(int order) {
+	public void setWidgetorder(int order) {
 		this.widgetorder = order;
 	}
 	public int getSize() {

@@ -38,6 +38,13 @@ public class WidgetService {
 		
 	}
 	
+	
+	@GetMapping("api/widget/{widgetId}")
+	public Optional<Widget> findWidget(@PathVariable("widgetId") int id){
+		return widgetRepository.findById(id);
+	}
+	
+	
 	@DeleteMapping("/api/delete/widget/{widgetId}")
 	public void deleteTopic(@PathVariable("widgetId") int widgetId) {
 		widgetRepository.deleteById(widgetId);	
