@@ -14,14 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.myApp.webdev.models.EssayQuestion;
 import com.example.myApp.webdev.models.Exam;
 import com.example.myApp.webdev.models.Question;
+import com.example.myApp.webdev.models.TrueFalseQuestion;
 import com.example.myApp.webdev.repositories.EssayQuestionRepository;
 import com.example.myApp.webdev.repositories.ExamRepository;
+import com.example.myApp.webdev.repositories.TrueFalseQuestionRespository;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class QuestionService {
 	@Autowired
 	EssayQuestionRepository essayRepository;
+	
+	@Autowired
+	TrueFalseQuestionRespository trueFalseQuestionRepository;
 	
 	@Autowired
 	ExamRepository examRepository;
@@ -33,10 +38,13 @@ public class QuestionService {
 		return essayRepository.save(question);
 	}
 	
-//	@GetMapping("/api/exam/{eid}/question")
-//	public List<Question> findAllQuestionsForExam(@PathVariable("eid") int id) {
-//		List<Question> A = examRepository.findAllQuestionsForExam(id);
-//		return A;
-//	}
+	@PostMapping("/api/exam/{eid}/truefalse")
+	public TrueFalseQuestion createTrueFalseQuestion(@RequestBody TrueFalseQuestion question, @PathVariable("eid") int id) {
+		Optional<Exam> exam = examRepository.findById(id);
+		question.setExam(exam.get());
+		return trueFalseQuestionRepository.save(question);
+	}
+	
+
 
 }
