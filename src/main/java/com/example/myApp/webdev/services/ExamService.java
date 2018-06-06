@@ -28,6 +28,17 @@ public class ExamService {
 	@Autowired
 	TopicRepository topicRepository;
 	
+	
+	@GetMapping("/api/exam")
+	public Iterable<Exam> findAllAssignments() {
+		return examRepository.findAll();
+	}
+	
+	@GetMapping("/api/exam/{eid}")
+	public Optional<Exam> findExamById(@PathVariable("eid") int id) {
+		return examRepository.findById(id);
+	}
+	
 	@GetMapping("/api/topic/{tid}/exam")
 	public List<Exam> findAllExamsForTopic(@PathVariable("tid") int id) {
 		
