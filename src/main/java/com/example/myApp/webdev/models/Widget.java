@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@Table(name = "widget")
 public class Widget {
 	
 	

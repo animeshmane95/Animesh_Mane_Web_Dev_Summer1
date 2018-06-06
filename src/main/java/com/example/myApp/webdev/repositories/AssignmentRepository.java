@@ -12,7 +12,7 @@ import com.example.myApp.webdev.models.Lesson;
 
 public interface AssignmentRepository extends CrudRepository<Assignment,Integer> {
 	
-	@Query(value = "Select * from widget where topic_id =?1 AND widget_type = assignment", nativeQuery = true)
-	public List<Widget>findAllAssignmentsForTopic(@Param("topic_id") int topicid);
+	@Query(value = "Select * from widget where topic_id =?1 AND dtype = 'Assignment'", nativeQuery = true)
+	public List<Assignment>findAllAssignmentsForTopic(@Param("topic_id") int topicid);
 
 }
