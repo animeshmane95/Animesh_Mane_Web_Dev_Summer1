@@ -38,7 +38,7 @@ public class AssignmentService {
 	}
 	
 	@GetMapping("/api/assignment/{aid}")
-	public Optional<Assignment> findCourseById(@PathVariable("aid") int id) {
+	public Optional<Assignment> findAssignmentById(@PathVariable("aid") int id) {
 		return assignmentRepository.findById(id);
 	}
 	
