@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.myApp.webdev.models.BlanksQuestion;
 import com.example.myApp.webdev.models.EssayQuestion;
 import com.example.myApp.webdev.models.Exam;
+import com.example.myApp.webdev.models.MultipleChoiceQuestion;
 import com.example.myApp.webdev.models.Question;
 import com.example.myApp.webdev.models.TrueFalseQuestion;
 import com.example.myApp.webdev.repositories.BlankQuestionRepository;
 import com.example.myApp.webdev.repositories.EssayQuestionRepository;
 import com.example.myApp.webdev.repositories.ExamRepository;
+import com.example.myApp.webdev.repositories.MultipleChoiceQuestionRepository;
 import com.example.myApp.webdev.repositories.TrueFalseQuestionRespository;
 
 @RestController
@@ -35,6 +37,9 @@ public class QuestionService {
 	
 	@Autowired
 	BlankQuestionRepository blankQuestionRepository;
+	
+	@Autowired
+	MultipleChoiceQuestionRepository mcqRepository;
 	
 	@PostMapping("/api/exam/{eid}/essay")
 	public EssayQuestion createEssayQuestion(@RequestBody EssayQuestion question, @PathVariable("eid") int id) {
@@ -55,6 +60,13 @@ public class QuestionService {
 		Optional<Exam> exam = examRepository.findById(id);
 		question.setExam(exam.get());
 		return blankQuestionRepository.save(question);
+	}
+	
+	@PostMapping("/api/exam/{eid}/choice")
+	public MultipleChoiceQuestion createMCQQuestion(@RequestBody MultipleChoiceQuestion question, @PathVariable("eid") int id) {
+		Optional<Exam> exam = examRepository.findById(id);
+		question.setExam(exam.get());
+		return mcqRepository.save(question);
 	}
 	
 
