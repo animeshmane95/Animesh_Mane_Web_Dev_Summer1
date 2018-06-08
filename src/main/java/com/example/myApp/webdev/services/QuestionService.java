@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import com.example.myApp.webdev.repositories.BlankQuestionRepository;
 import com.example.myApp.webdev.repositories.EssayQuestionRepository;
 import com.example.myApp.webdev.repositories.ExamRepository;
 import com.example.myApp.webdev.repositories.MultipleChoiceQuestionRepository;
+import com.example.myApp.webdev.repositories.QuestionRepository;
 import com.example.myApp.webdev.repositories.TrueFalseQuestionRespository;
 
 @RestController
@@ -39,7 +41,15 @@ public class QuestionService {
 	BlankQuestionRepository blankQuestionRepository;
 	
 	@Autowired
+	QuestionRepository questionRepository;
+	
+	@Autowired
 	MultipleChoiceQuestionRepository mcqRepository;
+	
+	@DeleteMapping("/api/delete/question/{qid}")
+	public void deleteQuestion(@PathVariable("qid") int questionId) {
+		questionRepository.deleteById(questionId);	
+	}
 	
 	@PostMapping("/api/exam/{eid}/essay")
 	public EssayQuestion createEssayQuestion(@RequestBody EssayQuestion question, @PathVariable("eid") int id) {
