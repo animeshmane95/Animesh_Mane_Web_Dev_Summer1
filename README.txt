@@ -1,2 +1,2 @@
-All features implemented for react native.
+All features implemented for react native
 
